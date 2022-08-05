@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.NativeWebRequest;
 
+import java.util.List;
 import java.util.Optional;
 
 @Validated
@@ -20,7 +21,7 @@ public interface StockApi {
 
     @GetMapping(path = "/all-stocks")
     @ResponseStatus(value = HttpStatus.OK)
-    default ResponseEntity<StockDTO> getStocks(){
+    default ResponseEntity<List<StockDTO>> getStocks(){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
