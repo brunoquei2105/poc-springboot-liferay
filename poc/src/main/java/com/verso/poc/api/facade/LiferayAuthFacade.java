@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
-public class LiferayAuthFacade {
+public class                    LiferayAuthFacade {
 
     @Value("${base.url.liferay.object}")
     private String baseURL;

@@ -1,5 +1,6 @@
-package com.verso.poc.api.controller;
+package com.verso.poc.api.controller.impl;
 
+import com.verso.poc.api.controller.interfaces.StockApi;
 import com.verso.poc.api.enums.Operators;
 import com.verso.poc.api.facade.StockFacade;
 import com.verso.poc.api.factory.StockFactory;
@@ -7,21 +8,18 @@ import com.verso.poc.model.consumer.response.StockResponse;
 import com.verso.poc.model.consumer.response.StockResponseRoot;
 import com.verso.poc.model.producer.dto.StockDTO;
 import com.verso.poc.model.producer.dto.StocksDTO;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @RestController
 @RequestMapping(path = "/v1/api")
 @Slf4j
-public class StockController implements StockApi{
+public class StockController implements StockApi {
 
     private final StockFacade stockFacade;
 

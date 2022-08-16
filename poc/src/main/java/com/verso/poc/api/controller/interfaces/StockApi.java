@@ -1,4 +1,4 @@
-package com.verso.poc.api.controller;
+package com.verso.poc.api.controller.interfaces;
 
 import com.verso.poc.model.consumer.request.StockRequest;
 import com.verso.poc.model.consumer.response.StockResponse;
@@ -13,7 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import java.util.List;
 import java.util.Optional;
 
 @Validated
