@@ -1,6 +1,7 @@
 package com.verso.poc.api.controller.interfaces;
 
-import com.verso.poc.model.producer.dto.BlogsDTO;
+import com.verso.poc.model.producer.headless.BlogDTO;
+import com.verso.poc.model.producer.headless.BlogsDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -27,7 +28,15 @@ public interface BlogsApi {
     @Operation(responses = {
             @ApiResponse(description = "Return a BlogDTO.", responseCode = "200")
     }, summary = "", tags = {})
-     default ResponseEntity<BlogsDTO> getBlogsById(@PathVariable String blogId){
+     default ResponseEntity<BlogDTO> getBlogsById(@PathVariable String blogId){
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+    @GetMapping(value = "/blogs-from-site/{siteId}")
+    @ResponseStatus(value = HttpStatus.OK)
+    @Operation(responses = {
+            @ApiResponse(description = "Return all Blogs Posting from a site.", responseCode = "200")
+    }, summary = "", tags = {})
+    default ResponseEntity<BlogsDTO> getAllBlogsFromSite(@PathVariable String siteId){
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 }

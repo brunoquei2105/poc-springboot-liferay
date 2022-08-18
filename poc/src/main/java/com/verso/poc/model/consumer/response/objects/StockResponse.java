@@ -1,4 +1,4 @@
-package com.verso.poc.model.consumer.response;
+package com.verso.poc.model.consumer.response.objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

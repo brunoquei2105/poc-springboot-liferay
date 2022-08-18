@@ -1,4 +1,4 @@
-package com.verso.poc.model.producer.dto;
+package com.verso.poc.model.producer.objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

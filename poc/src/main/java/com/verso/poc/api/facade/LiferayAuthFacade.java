@@ -1,7 +1,7 @@
 package com.verso.poc.api.facade;
 
-import com.verso.poc.api.factory.LiferayAuthFactory;
-import com.verso.poc.model.consumer.response.LiferayAuthResponse;
+import com.verso.poc.api.factory.objects.LiferayAuthFactory;
+import com.verso.poc.model.consumer.response.objects.LiferayAuthResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;

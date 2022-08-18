@@ -2,12 +2,10 @@ package com.verso.poc.api.controller.impl;
 
 import com.verso.poc.api.controller.interfaces.StockApi;
 import com.verso.poc.api.enums.Operators;
-import com.verso.poc.api.facade.StockFacade;
-import com.verso.poc.api.factory.StockFactory;
-import com.verso.poc.model.consumer.response.StockResponse;
-import com.verso.poc.model.consumer.response.StockResponseRoot;
-import com.verso.poc.model.producer.dto.StockDTO;
-import com.verso.poc.model.producer.dto.StocksDTO;
+import com.verso.poc.api.facade.objects.StockFacade;
+import com.verso.poc.api.factory.objects.StockFactory;
+import com.verso.poc.model.consumer.response.objects.StockResponseRoot;
+import com.verso.poc.model.producer.objects.StocksDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

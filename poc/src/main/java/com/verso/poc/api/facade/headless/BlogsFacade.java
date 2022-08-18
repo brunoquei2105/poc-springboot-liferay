@@ -1,7 +1,9 @@
-package com.verso.poc.api.facade;
+package com.verso.poc.api.facade.headless;
 
-import com.verso.poc.model.consumer.response.BlogPostingResponse;
-import com.verso.poc.model.consumer.response.LiferayAuthResponse;
+import com.verso.poc.api.facade.LiferayAuthFacade;
+import com.verso.poc.model.consumer.response.headless.BlogPostingResponse;
+import com.verso.poc.model.consumer.response.headless.BlogsPostingsResponse;
+import com.verso.poc.model.consumer.response.objects.LiferayAuthResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,9 @@ public class BlogsFacade {
     @Value("${uri.headless.blogs.get}")
     private String blogURI;
 
+    @Value("${uri.headless.site.blogs}")
+    private String blogsFromSiteURI;
+
     @Autowired
     private LiferayAuthFacade authFacade;
 
@@ -31,6 +36,19 @@ public class BlogsFacade {
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToMono(BlogPostingResponse.class)
+                .block();
+    }
+
+    public BlogsPostingsResponse getBlogFromSite(String siteId){
+        WebClient webClient = WebClient.create(baseUrl);
+
+        LiferayAuthResponse auth = authFacade.getAuth();
+
+        return webClient.get().uri(uriBuilder -> uriBuilder.path(blogsFromSiteURI).build(siteId))
+                .header(HttpHeaders.AUTHORIZATION, auth.getTokenType() + " " + auth.getTokenType())
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(BlogsPostingsResponse.class)
                 .block();
     }
 }

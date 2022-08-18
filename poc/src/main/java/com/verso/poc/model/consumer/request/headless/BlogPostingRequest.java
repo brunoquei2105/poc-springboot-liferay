@@ -1,4 +1,4 @@
-package com.verso.poc.model.consumer.request;
+package com.verso.poc.model.consumer.request.headless;
 
 
 public class BlogPostingRequest {

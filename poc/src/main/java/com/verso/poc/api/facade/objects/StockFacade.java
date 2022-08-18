@@ -1,9 +1,10 @@
-package com.verso.poc.api.facade;
+package com.verso.poc.api.facade.objects;
 
-import com.verso.poc.model.consumer.request.StockRequest;
-import com.verso.poc.model.consumer.response.LiferayAuthResponse;
-import com.verso.poc.model.consumer.response.StockResponse;
-import com.verso.poc.model.consumer.response.StockResponseRoot;
+import com.verso.poc.api.facade.LiferayAuthFacade;
+import com.verso.poc.model.consumer.request.objects.StockRequest;
+import com.verso.poc.model.consumer.response.objects.LiferayAuthResponse;
+import com.verso.poc.model.consumer.response.objects.StockResponse;
+import com.verso.poc.model.consumer.response.objects.StockResponseRoot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

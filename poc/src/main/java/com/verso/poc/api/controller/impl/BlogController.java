@@ -1,10 +1,12 @@
 package com.verso.poc.api.controller.impl;
 
 import com.verso.poc.api.controller.interfaces.BlogsApi;
-import com.verso.poc.api.facade.BlogsFacade;
-import com.verso.poc.api.factory.BlogsFactory;
-import com.verso.poc.model.consumer.response.BlogPostingResponse;
-import com.verso.poc.model.producer.dto.BlogsDTO;
+import com.verso.poc.api.facade.headless.BlogsFacade;
+import com.verso.poc.api.factory.headless.BlogsFactory;
+import com.verso.poc.model.consumer.response.headless.BlogPostingResponse;
+import com.verso.poc.model.consumer.response.headless.BlogsPostingsResponse;
+import com.verso.poc.model.producer.headless.BlogDTO;
+import com.verso.poc.model.producer.headless.BlogsDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,13 +29,25 @@ public class BlogController implements BlogsApi {
         this.factory = factory;
     }
     @Override
-    public ResponseEntity<BlogsDTO> getBlogsById(String blogId){
-        var dto = new BlogsDTO();
+    public ResponseEntity<BlogDTO> getBlogsById(String blogId){
+        var dto = new BlogDTO();
        BlogPostingResponse response = facade.getBlogById(blogId);
        if (Objects.nonNull(response)){
            return new ResponseEntity<>(factory.setBlogDto(response), HttpStatus.OK);
        }
        log.info("Blog Posting Not Found.");
-       return new ResponseEntity<>(dto, HttpStatus.OK);
+       return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
+   }
+   @Override
+   public ResponseEntity<BlogsDTO> getAllBlogsFromSite(String siteId){
+        var dtos = new BlogsDTO();
+        BlogsPostingsResponse response = facade.getBlogFromSite(siteId);
+
+        if (Objects.nonNull(response) && Objects.nonNull(response.getBlogs()) && response.getBlogs().size() > 0){
+            return new ResponseEntity<>(factory.setBlogsPostingsDTO(response),HttpStatus.OK);
+        }
+        log.info("Blog Posting Not Found.");
+        return new ResponseEntity<>(dtos, HttpStatus.NOT_FOUND);
+
    }
 }

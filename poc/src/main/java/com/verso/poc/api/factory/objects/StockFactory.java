@@ -1,9 +1,9 @@
-package com.verso.poc.api.factory;
+package com.verso.poc.api.factory.objects;
 
-import com.verso.poc.model.consumer.response.StockResponse;
-import com.verso.poc.model.consumer.response.StockResponseRoot;
-import com.verso.poc.model.producer.dto.StockDTO;
-import com.verso.poc.model.producer.dto.StocksDTO;
+import com.verso.poc.model.consumer.response.objects.StockResponse;
+import com.verso.poc.model.consumer.response.objects.StockResponseRoot;
+import com.verso.poc.model.producer.objects.StockDTO;
+import com.verso.poc.model.producer.objects.StocksDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

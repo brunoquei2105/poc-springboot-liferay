@@ -1,9 +1,8 @@
 package com.verso.poc.api.controller.interfaces;
 
-import com.verso.poc.model.consumer.request.StockRequest;
-import com.verso.poc.model.consumer.response.StockResponse;
-import com.verso.poc.model.producer.dto.StockDTO;
-import com.verso.poc.model.producer.dto.StocksDTO;
+import com.verso.poc.model.consumer.request.objects.StockRequest;
+import com.verso.poc.model.consumer.response.objects.StockResponse;
+import com.verso.poc.model.producer.objects.StocksDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -1,4 +1,4 @@
-package com.verso.poc.api.factory;
+package com.verso.poc.api.factory.objects;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
